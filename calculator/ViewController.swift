@@ -9,17 +9,47 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var textField1: UITextField!
+    @IBOutlet weak var textField2: UITextField!
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBOutlet weak var alertLabel: UILabel!
+    var result = 0
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        resultLabel.text = ""
+        alertLabel.text = ""
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func funcToplama(_ sender: Any) {
+        if let firstNumber = Int(textField1.text!), let secondNumber = Int(textField2.text!){
+                result = firstNumber + secondNumber
+                resultLabel.text = String(result)
+                alertLabel.text = ""
+        }
+        else {
+            alertLabel.text = "Lütfen Rakam Giriniz!"
+            resultLabel.text = ""
+        }
     }
-
-
+    
+    @IBAction func funcCarpma(_ sender: Any) {
+        if let firstNumber = Int(textField1.text!), let secondNumber = Int(textField2.text!){
+            result = firstNumber * secondNumber
+            resultLabel.text = String(result)
+            alertLabel.text = ""
+        }
+        else {
+            alertLabel.text = "Lütfen Rakam Giriniz!"
+            resultLabel.text = ""
+        }
+        
+    }
+    
 }
 
